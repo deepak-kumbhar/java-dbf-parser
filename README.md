@@ -1,11 +1,11 @@
-# JavaDBF
-JavaDBF is a Java library for reading and writing XBase files.
+# JavaDBFParser
+JavaDBFParser is a Java library for reading and writing XBase files.
 There are plenty of legacy applications around with .dbf as their primary storage format.
-JavaDBF was initially written for data transfer with such applications.
+JavaDBFParser was initially written for data transfer with such applications.
 
 # License
 
-JavaDBF is LGPL
+JavaDBFParser is LGPL
 
 https://www.gnu.org/licenses/lgpl.txt
 
@@ -21,7 +21,7 @@ DBF file format still remains one of the simplest way to store and transfer data
 
 ## Possible breaking changes
 
-JavaDBF 1.0.0 is the first release considered stable. It has a lot of improvements and is almost compatible with
+JavaDBFParser 1.0.0 is the first release considered stable. It has a lot of improvements and is almost compatible with
 old code. But there are some small changes that may break your code:
 
 * Numeric and Double types (N and F) are now returned as BigDecimal instead of Double.
@@ -41,16 +41,16 @@ old code. But there are some small changes that may break your code:
 
 # Getting and Installing
 
-Obtain the latest version of JavaDBF from release page at github.
+Obtain the latest version of JavaDBFParser from release page at github.
 Download the jar file and put it in your $CLASSPATH variable. You are ready to go. 
 
 ## Getting with Maven
-If you are using Maven, you can add JavaDBF to your project using this dependency in your pom.xml
+If you are using Maven, you can add JavaDBFParser to your project using this dependency in your pom.xml
 
 ```
 	<dependency>
-		<groupId>com.github.albfernandez</groupId>
-		<artifactId>javadbf</artifactId>
+		<groupId>com.github.deepak-kumbhar</groupId>
+		<artifactId>java-dbf-parser</artifactId>
 		<version>1.13.1</version>
 	</dependency>
 ```
@@ -58,24 +58,24 @@ If you are using Maven, you can add JavaDBF to your project using this dependenc
 
 # Overview of the Library
 
-JavaDBF has a simple API of its own and it does not implement the JDBC API. 
-It is designed this way because JavaDBF is not intended to support full-blown RDBMS-style database interaction.
+JavaDBFParser has a simple API of its own and it does not implement the JDBC API. 
+It is designed this way because JavaDBFParser is not intended to support full-blown RDBMS-style database interaction.
 And you are not supposed to use it like a back-end; it just doesn't work that way. 
-Also, JavaDBF is not designed to be thread-safe; keep that in mind when you design multithreaded applications.
+Also, JavaDBFParser is not designed to be thread-safe; keep that in mind when you design multithreaded applications.
 
-JavaDBF comes in the package com.linuxense.javadbf. 
+JavaDBFParser comes in the package com.dk.javadbfparser. 
 Import that package in your Java code. Following examples will familiarise you with its APIs. 
 
 # Data Type Mapping
 
-JavaDBF supports almost all XBase data types. 
+JavaDBFParser supports almost all XBase data types. 
 While reading, those types are interpretted as appropriate Java types.
 Following tables shows the mapping scheme.
 
 
 ## Read and write supported types
 
-| XBase Type    | XBase Symbol | Java Type used in JavaDBF |
+| XBase Type    | XBase Symbol | Java Type used in JavaDBFParser |
 |------------   | ------------ | ---------------------------
 |Character      | C            | java.lang.String          |
 |Numeric        | N            | java.math.BigDecimal      |
@@ -86,7 +86,7 @@ Following tables shows the mapping scheme.
 
 ## Read supported types
 
-| FoxPro Type           | Symbol | Java Type used in JavaDBF |
+| FoxPro Type           | Symbol | Java Type used in JavaDBFParser |
 | --------------------- | ------ | ------------------------- |  
 | Currency              | Y      | java.math.BigDecimal      |
 | Long                  | I      | java.lang.Integer         |
@@ -110,13 +110,13 @@ Following tables shows the mapping scheme.
 
 # Reading a DBF File
 
-To read a DBF file, JavaDBF provides a DBFReader class. 
+To read a DBF file, JavaDBFParser provides a DBFReader class. 
 Following is a ready-to-compile, self-explanatory program describing almost all feature of the DBFReader class. 
 Copy/paste this listing and compile it. Keep a .dbf file handy to pass to this program as its argument.
 
 ```java
 import java.io.*;
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 
 public class JavaDBFReaderTest {
 
@@ -173,14 +173,14 @@ public class JavaDBFReaderTest {
 # Reading a DBF File using field names
 
 
-From JavaDBF 1.7.0 you can use field names to access data. 
+From JavaDBFParser 1.7.0 you can use field names to access data. 
 You must use nextRow instead nextRecord
 
 ```	
 
 import java.io.*;
 
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 
 public class JavaDBFReaderWithFieldNamesTest {
 
@@ -239,7 +239,7 @@ You can specify memo file to read Memo fields from. If you don't specify this fi
 
 ```java
 import java.io.*;
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 
 public class JavaDBFReaderMemoTest {
 
@@ -309,7 +309,7 @@ This Object array is supposed contain values for the fields added with one-to-on
 Following is a complete program explaining all the steps described above:
 
 ```java
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 import java.io.*;
 
 public class JavaDBFWriterTest {
@@ -372,20 +372,20 @@ public class JavaDBFWriterTest {
 Keep in mind that till the close method is called, all the added data will be kept in memory. 
 So, if you are planning to write huge amount of data make sure that it will be safely held in memory 
 till it is written to disk and the DBFWriter object is garbage-collected.
-Read the Sync Mode section to know how JavaDBF to use a special feature of JavaDBF to overcome this.
+Read the Sync Mode section to know how JavaDBFParser to use a special feature of JavaDBFParser to overcome this.
 
 ## Sync Mode: Writing Records to File as They are Added
 
-This is useful when JavaDBF is used to create a DBF with very large number of records. 
+This is useful when JavaDBFParser is used to create a DBF with very large number of records. 
 In this mode, instead of keeping records in memory for writing them once for all,
 records are written to file as addRecord() is called. Here is how to write in Sync Mode.
 
 Create DBFWriter instance by passing a File object which represents a new/non-existent or empty file.
 And you are done! But, as in the normal mode, remember to call close() when have added all the records.
-This will help JavaDBF to write the meta data with correct values. Here is a sample code:
+This will help JavaDBFParser to write the meta data with correct values. Here is a sample code:
 
 ```java
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 import java.io.*;
 
 public class DBFWriterTest {
@@ -413,7 +413,7 @@ public class DBFWriterTest {
 
 # Appending Records
 
-From version 0.4.0 onwards JavaDBF supports appending of records to an existing DBF file. 
+From version 0.4.0 onwards JavaDBFParser supports appending of records to an existing DBF file. 
 Use the same constructor used in Sync Mode to achieve this. 
 But here the File object passed to the construction should represent the DBF file to which records are to be appended. 
 
@@ -421,7 +421,7 @@ It is illegal to call setFields in DBFWriter object created for appending.
 Here also it is required to call the close() method after adding all the records.
 
 ```java
-import com.linuxense.javadbf.*;
+import com.dk.javadbfparser.*;
 import java.io.*;
 
 public class DBFWriterTest {

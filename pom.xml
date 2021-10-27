@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.albfernandez</groupId>
+	<groupId>com.github.deepak-kumbhar</groupId>
 	<artifactId>javadbfparser</artifactId>
 	<version>1.14.0-SNAPSHOT</version>
-	<url>https://github.com/albfernandez/javadbf</url>
+	<url>https://github.com/deepak-kumbhar/java-dbf-parser</url>
 	<packaging>jar</packaging>
-	<name>javadbf</name>
-	<description>JavaDBF is a Java library for reading and writing XBase files.</description>
+	<name>javadbfparser</name>
+	<description>JavaDBFParser is a Java library for reading and writing XBase files.</description>
 
 	<licenses>
 		<license>
@@ -17,20 +17,20 @@
 	</licenses>
 	<developers>
 		<developer>
-			<name>Alberto Fernández</name>
-			<email>infjaf@gmail.com</email>
-			<organization>Alberto Fernández</organization>
-			<organizationUrl>https://github.com/albfernandez/</organizationUrl>
+			<name>Deepak Kumbhar</name>
+			<email>dg12kumbhar@gmail.com</email>
+			<organization>Deepak Kumbhar</organization>
+			<organizationUrl>https://github.com/deepak-kumbhar/</organizationUrl>
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git@github.com:albfernandez/javadbf.git</connection>
-		<developerConnection>scm:git:git@github.com:albfernandez/javadbf.git</developerConnection>
-		<url>git@github.com:albfernandez/javadbf.git</url>
+		<connection>scm:git:git@github.com:deepak-kumbhar/java-dbf-parser.git</connection>
+		<developerConnection>scm:git:git@github.com:deepak-kumbhar/java-dbf-parser.git</developerConnection>
+		<url>git@github.com:deepak-kumbhar/java-dbf-parser.git</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/albfernandez/javadbf/issues</url>
+		<url>https://github.com/deepak-kumbhar/java-dbf-parser/issues</url>
 	</issueManagement>
 
 	<properties>
@@ -102,7 +102,7 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Automatic-Module-Name>com.github.albfernandez.javadbf</Automatic-Module-Name>
+							<Automatic-Module-Name>com.github.deepak-kumbhar.java-dbf-parser</Automatic-Module-Name>
 						</manifestEntries>
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
