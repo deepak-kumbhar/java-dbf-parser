@@ -448,8 +448,8 @@ public class DBFWriterTest {
 
 Clone the repository or download de tar file from releases page on github, then run the Maven command:
 
-    git clone https://github.com/albfernandez/javadbf.git
-    cd javadbf
+    git clone https://github.com/deepak-kumbhar/java-dbf-parser.git
+    cd java-dbf-parser
     mvn clean package
 
 The result file is ``target/javadbf-x.xx.x.jar``
